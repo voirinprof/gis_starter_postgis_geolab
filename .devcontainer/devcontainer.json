@@ -2,7 +2,7 @@
     "name": "PostGIS Python Dev",
     "dockerComposeFile": "docker-compose.yml",
     "service": "python",
-    "workspaceFolder": "/workspace/app",
+    "workspaceFolder": "/workspace",
     "customizations": {
       "vscode": {
         "extensions": [
