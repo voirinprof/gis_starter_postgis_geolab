@@ -11,6 +11,6 @@
         ]
       }
     },
+    "forwardPorts": [5432, 5050],
     "postCreateCommand": "pip install --upgrade pip && pip install -r .devcontainer/requirements.txt"
   }
-  

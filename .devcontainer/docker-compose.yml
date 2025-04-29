@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   python:
     build:
@@ -24,3 +25,28 @@ services:
       POSTGRES_DB: gisdb
     ports:
       - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "False"
+      PGADMIN_CONFIG_CSRF_ENABLED: "False"
+      PGADMIN_CONFIG_SESSION_COOKIE_SAMESITE: "Lax"
+      PGADMIN_CONFIG_SESSION_COOKIE_SECURE: "False"
+      PGADMIN_CONFIG_PROXY_X_FOR_COUNT: "1"
+      PGADMIN_CONFIG_PROXY_X_PROTO_COUNT: "1"
+      PGADMIN_CONFIG_PROXY_X_HOST_COUNT: "1"
+      PGADMIN_CONFIG_PROXY_X_PORT_COUNT: "1"
+      PGADMIN_CONFIG_PROXY_X_PREFIX_COUNT: "1"
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgis
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  pgadmin_data:
