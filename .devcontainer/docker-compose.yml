@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ..:/workspace/app:cached
+      - ..:/workspaces/gis_starter_postgis_geolab:cached
     depends_on:
       - postgis
     environment:
